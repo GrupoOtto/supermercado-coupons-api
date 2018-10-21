@@ -1,0 +1,32 @@
+{
+  "name": "supermercado-coupons-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrupoOtto/supermercado-coupons-api.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GrupoOtto/supermercado-coupons-api/issues"
+  },
+  "homepage": "https://github.com/GrupoOtto/supermercado-coupons-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-validation": "^1.0.2",
+    "http-status": "^1.2.0",
+    "joi": "^13.6.0",
+    "mongoose": "^5.2.14"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.4"
+  }
+}
