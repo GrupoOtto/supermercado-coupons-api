@@ -1,20 +1,29 @@
 const mongoose = require('mongoose');
 
 const CouponSchema = new mongoose.Schema({
-  amount: {
-    type: Number,
-    required: true,
-  },
-  amountType: {
+  code: {
     type: String,
-    enum: ['percentage', 'flat']
+    required: true
+  },
+  off: {
+    value: {
+      type: Number,
+      required: true,
+    },
+    mark: {
+      type: String,
+      required: true,
+      enum: ['%', '$']
+    }
   },
   uses: {
     type: Number,
-    required: true,
-    default: 0,
-  }
-  expirationDate: {
+    default: 1,
+  },
+  nbf: {
+    type: Date
+  },
+  exp: {
     type: Date
   },
   description: {
@@ -22,7 +31,12 @@ const CouponSchema = new mongoose.Schema({
   }
 });
 
-CouponSchema.method({});
+CouponSchema.method({
+  isValid: function () {
+    const now = Date.now();
+    return this.uses > 0 && this.nbf > now && this.exp < now;
+  }
+});
 
 CouponSchema.statics = {};
 
