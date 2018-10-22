@@ -19,7 +19,6 @@ const CouponSchema = new mongoose.Schema({
   },
   uses: {
     type: Number,
-    default: 1,
   },
   nbf: {
     type: Date
@@ -35,7 +34,16 @@ const CouponSchema = new mongoose.Schema({
 CouponSchema.method({
   isValid: function () {
     const now = Date.now();
-    return this.uses > 0 && this.nbf > now && this.exp < now;
+    if (this.nbf && this.nbf > now){
+      return false;
+    }
+    if (this.exp && this.exp < now){
+      return false;
+    }
+    if (this.uses !== undefined && this.uses < 1){
+      return false;
+    }
+    return true;
   }
 });
 

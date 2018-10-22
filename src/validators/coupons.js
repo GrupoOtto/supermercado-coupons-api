@@ -25,10 +25,10 @@ exports.all = {
 
 exports.create = {
  body: {
-    uses: Joi.number().min(0),
+    uses: [Joi.boolean().allow(false), Joi.number().allow(-1), Joi.number().min(0)],
     description: Joi.string(),
     nbf: Joi.date(),
-    exp: experationSchema.required(),
+    exp: experationSchema,
     code: codeSchema,
     off: offSchema.required()
   }
