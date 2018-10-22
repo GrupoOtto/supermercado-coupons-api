@@ -40,7 +40,7 @@ CouponSchema.method({
     if (this.exp && this.exp < now){
       return false;
     }
-    if (this.uses !== undefined && this.uses < 1){
+    if (this.uses !== null && this.uses < 1){
       return false;
     }
     return true;
