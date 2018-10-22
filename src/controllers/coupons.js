@@ -8,5 +8,9 @@ exports.update = async (_id, args) => Coupon.findOneAndUpdate({ _id }, args);
 
 exports.delete = async _id => Coupon.deleteOne({ _id });
 
-exports.create = async args => Coupon.create(args);
+exports.create = async args => {
+  const voucher_codes = require('voucher-code-generator');
+  const code = voucher_codes.generate(args.code || {});
+  return await Coupon.create({...args, code})
+};
 

@@ -29,7 +29,7 @@ exports.create = {
     description: Joi.string(),
     nbf: Joi.date(),
     exp: experationSchema.required(),
-    code: codeSchema.required(),
+    code: codeSchema,
     off: offSchema.required()
   }
 };
@@ -40,7 +40,7 @@ exports.update = {
     description: Joi.string(),
     nbf: Joi.date(),
     exp: experationSchema.required(),
-    code: codeSchema.required(),
+    code: codeSchema,
     off: offSchema.required()
   }
 };
