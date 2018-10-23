@@ -103,7 +103,7 @@ PATCH   | Apply a partial update to an object                                   
     | `off.value`   | `QueryNumber`             |          | Value to discount with the coupon.        |
     | `off.mark`    | `String`                  |          | The unique code of the coupon.            |
     | `description` | `QueryString`             |          | The description of the coupon.            |
-    | `uses`        | `Boolean` | `QueryNumber` |          | Number of times the coupon can be used.   |
+    | `uses`        | `Boolean` \| `QueryNumber`|          | Number of times the coupon can be used.   |
     | `nbf`         | `QueryDate`               |          | Not Before date.                          |
     | `exp`         | `QueryDate`               |          | Expiration date.                          |
 
@@ -116,7 +116,7 @@ PATCH   | Apply a partial update to an object                                   
     | `off`         | `Discount`                | ✔        | Object with a discount value and its type.|
     | `code`        | `CodeDefinition`          |          | The unique code of the coupon.            |
     | `description` | `String`                  |          | The description of the coupon.            |
-    | `uses`        | `Boolean` | `QueryNumber` |          | Number of times the coupon can be used.   |
+    | `uses`        | `Boolean` \| `QueryNumber`|          | Number of times the coupon can be used.   |
     | `nbf`         | `ISODate`                 |          | Not Before date.                          |
     | `exp`         | `ISODate`                 |          | Expiration date.                          |
 
@@ -133,7 +133,7 @@ PATCH   | Apply a partial update to an object                                   
     | `off`         | `Discount`                | ✔        | Object with a discount value and its type.|
     | `code`        | `CodeDefinition`          |          | The unique code of the coupon.            |
     | `description` | `String`                  |          | The description of the coupon.            |
-    | `uses`        | `Boolean` | `QueryNumber` |          | Number of times the coupon can be used.   |
+    | `uses`        | `Boolean` \| `QueryNumber`|          | Number of times the coupon can be used.   |
     | `nbf`         | `ISODate`                 |          | Not Before date.                          |
     | `exp`         | `ISODate`                 |          | Expiration date.                          |
 
@@ -146,7 +146,7 @@ PATCH   | Apply a partial update to an object                                   
     | `off`         | `Discount`                |          | Object with a discount value and its type.|
     | `code`        | `CodeDefinition`          |          | The unique code of the coupon.            |
     | `description` | `String`                  |          | The description of the coupon.            |
-    | `uses`        | `Boolean` | `QueryNumber` |          | Number of times the coupon can be used.   |
+    | `uses`        | `Boolean` \| `QueryNumber`|          | Number of times the coupon can be used.   |
     | `nbf`         | `ISODate`                 |          | Not Before date.                          |
     | `exp`         | `ISODate`                 |          | Expiration date.                          |
 
