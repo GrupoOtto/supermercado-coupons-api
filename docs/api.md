@@ -46,6 +46,12 @@
 | `postfix`     | `String`   |          | A text appended after the code.                                               |
 
 
+#### Valid : `Object`
+
+| Property      | Type       | Required | Description                               |
+| ------------- | ---------- | -------- | ----------------------------------------- |
+| `value`       | `Boolean`  | ✔        |                                           |
+
 ### 1.3 Queries
 
 #### Likeable : `Object`
@@ -88,7 +94,7 @@ PATCH   | Apply a partial update to an object                                   
 
   - `GET : Coupon[]`
 
-    Returns all products that satisfy the query filter
+    Returns all coupons that satisfy the query filter
 
     **Query Parameters**
 
@@ -114,11 +120,11 @@ PATCH   | Apply a partial update to an object                                   
     | `nbf`         | `ISODate`                 |          | Not Before date.                          |
     | `exp`         | `ISODate`                 |          | Expiration date.                          |
 
-- `/{id}`
+- `/{code}`
 
-  - `GET : Product`
+  - `GET : Coupon`
 
-  - `PUT : Product`
+  - `PUT : Coupon`
 
     **Body**
 
@@ -131,7 +137,7 @@ PATCH   | Apply a partial update to an object                                   
     | `nbf`         | `ISODate`                 |          | Not Before date.                          |
     | `exp`         | `ISODate`                 |          | Expiration date.                          |
 
-  - `PATCH : Product`
+  - `PATCH : Coupon`
 
     **Body**
 
@@ -144,7 +150,21 @@ PATCH   | Apply a partial update to an object                                   
     | `nbf`         | `ISODate`                 |          | Not Before date.                          |
     | `exp`         | `ISODate`                 |          | Expiration date.                          |
 
-  - `DELETE : Product`
+  - `DELETE : Coupon`
+
+- `/{code}/valid`
+
+  - `GET : Valid`
+
+        Returns if a given coupon is valid
+
+- `/{code}/use`
+
+  - `POST : Coupon`
+
+        Uses a given coupon decreasing by one the number of its uses.
+
+
 
 [GET] /{code}/valid -> Boolean (Return if a coupon is valid for use)
 [POST] /{code}/use -> Coupon
