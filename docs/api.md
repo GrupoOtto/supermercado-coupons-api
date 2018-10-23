@@ -62,7 +62,7 @@
 
 #### QueryString : `(String | Likeable)`
 
-#### Sortable<T> : `Object`
+#### Sortable\<T> : `Object`
 
 | Property | Type     | Required | Description                     |
 | -------- | -------- | -------- | ------------------------------- |
@@ -71,11 +71,11 @@
 | `$lt`    | `Number` |          | A lower bound number.           |
 | `$lte`   | `Number` |          | A lower bound or equal number.  |
 
-#### Comparable<T> : (T | Sortable<T>)
+#### Comparable\<T> : (T | Sortable\<T>)
 
-#### QueryNumber : Comparable<Number>
+#### QueryNumber : Comparable\<Number>
 
-#### QueryDate : Comparable<ISODate>
+#### QueryDate : Comparable\<ISODate>
 
 ## 2 Supported Methods
 
