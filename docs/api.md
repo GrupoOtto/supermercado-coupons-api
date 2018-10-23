@@ -155,16 +155,10 @@ PATCH   | Apply a partial update to an object                                   
 - `/{code}/valid`
 
   - `GET : Valid`
-
-        Returns if a given coupon is valid
+    Returns if a given coupon is valid
 
 - `/{code}/use`
 
   - `POST : Coupon`
+    Uses a given coupon decreasing by one the number of its uses.
 
-        Uses a given coupon decreasing by one the number of its uses.
-
-
-
-[GET] /{code}/valid -> Boolean (Return if a coupon is valid for use)
-[POST] /{code}/use -> Coupon
