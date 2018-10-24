@@ -2,13 +2,14 @@ const mongoose = require('mongoose');
 const coupons = require('./controllers/coupons');
 
 const random = () => Math.random() >= 0.7;
+const nextInt = (min, max) => Math.round(Math.random() * (max - min) + min);
 
-const Coupon = (args) => coupons.create(args)
+const Coupon = (args) => coupons.create(args);
 
 mongoose.connect(process.env.DB_URL).then(async () => {
   for (let index = 0; index < 40; index++) {
       const off = {
-        value: index + 1,
+        value: nextInt(1, 20) * 5,
         mark: random() ? '$' : '%'
       };
 
