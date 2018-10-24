@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const api = require('./api');
 
 mongoose.connect(process.env.DB_URL);
+const port = process.env.PORT || 3000
 
 app.use(bodyParser.json());
 app.use(
@@ -22,4 +23,4 @@ app.use((err, req, res, next) => {
   throw err;
 });
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+app.listen(port, () => console.log(`App listening on port ${port}!`));
