@@ -7,25 +7,37 @@ const nextInt = (min, max) => Math.round(Math.random() * (max - min) + min);
 const Coupon = (args) => coupons.create(args);
 
 mongoose.connect(process.env.DB_URL).then(async () => {
-  for (let index = 0; index < 40; index++) {
-      const off = {
-        value: nextInt(1, 20) * 5,
-        mark: random() ? '$' : '%'
-      };
+  const date = new Date;
+  const oneUse = await Coupon({
+    code: {
+      pattern: "COUPON-1USE"
+    },
+    uses: 1,
+    off: {
+      value: 25,
+      mark: "%"
+    }
+  });
+  const infinity = await Coupon({
+    code: {
+      pattern: "COUPON-INFINITY"
+    },
+    uses: false,
+    off: {
+      value: 100,
+      mark: "$"
+    }
+  });
+  const expires = await Coupon({
+    code: {
+      pattern: "COUPON-EXPIRED"
+    },
+    off: {
+      value: 50,
+      mark: "%"
+    },
+    exp: date.setDate(date.getDate() - 10)
+  });
 
-      const code = {
-        prefix: random() ? 'CODE-' : '',
-        postfix: random() ? '-PROMO' : ''
-      };
-
-      const uses = random() ? index : false;
-      const description = random() ? `Description of coupon ${index + 1}` : undefined;
-
-      const date = new Date;
-      const nbf = random() ? date.setDate(date.getDate() + index) : undefined;
-      const exp = random() ? date.setDate(date.getDate() + index + 1) : undefined;
-
-      const coupon = await Coupon({off, code, uses, nbf, exp, description});
-      console.log(coupon);
-  }
+  process.exit();
 });
