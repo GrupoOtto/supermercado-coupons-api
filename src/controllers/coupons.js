@@ -6,7 +6,7 @@ exports.all = async args => {
   if (args.uses === false) {
     args.uses = null;
   } else if (args.uses === true) {
-    args.uses = { $ne: null }
+    args.uses = { $ne: null };
   }
 
   return Coupon.find(args);
@@ -41,9 +41,9 @@ exports.create = async args => {
 
 exports.isValid = async code => {
   const coupon = await Coupon.findOne({ code });
-  if (coupon) {
-    return { valid: coupon.isValid() };
-  }
+  if (!coupon) throw error(404, 'Coupon not found');
+  if (!coupon.isValid()) throw error(400, 'Coupon not valid');
+  return coupon;
 };
 
 exports.use = async code => {
